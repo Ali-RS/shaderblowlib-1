@@ -1,0 +1,10 @@
+Material My Material : MatDefs/LightBlow/LightBlow.j3md {
+     MaterialParameters {
+        LightMap : Models/LightBlow/lightmap/lightmap.png
+        SeperateTexCoord : true
+        DiffuseMap : Repeat Textures/Terrain_Textures/pattern_69/pattern_69_diffus.png
+        OverlayLightmap : false
+     }
+    AdditionalRenderState {
+    }
+}

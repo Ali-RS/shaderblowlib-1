@@ -1,0 +1,10 @@
+Material My Material : MatDefs/LightBlow/LightBlow.j3md {
+     MaterialParameters {
+        NormalMap : Models/LightBlow/jme_lightblow_nor.png
+        Nor_Inv_Y : false
+        Nor_Inv_X : false
+        Linear_Lighting : true
+     }
+    AdditionalRenderState {
+    }
+}
