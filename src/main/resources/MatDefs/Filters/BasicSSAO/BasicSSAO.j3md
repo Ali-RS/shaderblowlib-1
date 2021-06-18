@@ -25,8 +25,8 @@ MaterialDef BasicSSAO_1 {
     }
  
     Technique {
-        VertexShader GLSL150:   Common/MatDefs/Post/Post.vert
-        FragmentShader GLSL150: Filters/BasicSSAO/BasicSSAO15.frag
+        VertexShader GLSL300 GLSL150:   Common/MatDefs/Post/Post.vert
+        FragmentShader GLSL300 GLSL150: Filters/BasicSSAO/BasicSSAO15.frag
  
         WorldParameters {
             WorldViewProjectionMatrix

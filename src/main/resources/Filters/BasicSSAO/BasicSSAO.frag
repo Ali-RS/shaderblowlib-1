@@ -14,7 +14,11 @@ uniform float m_SampleRadiusFD;
 uniform float m_IntensityFD;
 uniform float m_ScaleFD;
 uniform float m_BiasFD;
+#ifdef GL_ES
+uniform vec3 m_Samples[12];
+#else
 uniform vec3[12] m_Samples;
+#endif
  
 uniform bool m_UseDistanceFalloff;
 uniform float m_FalloffStartDistance;

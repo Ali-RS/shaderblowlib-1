@@ -1,3 +1,4 @@
+#import "Common/ShaderLib/GLSLCompat.glsllib"
 #import "Common/ShaderLib/MultiSample.glsllib"
 
 uniform vec2 g_Resolution;
@@ -16,14 +17,17 @@ uniform float m_SampleRadiusFD;
 uniform float m_IntensityFD;
 uniform float m_ScaleFD;
 uniform float m_BiasFD;
+#ifdef GL_ES
+uniform vec3 m_Samples[12];
+#else
 uniform vec3[12] m_Samples;
- 
+#endif
+
 uniform bool m_UseDistanceFalloff;
 uniform float m_FalloffStartDistance;
 uniform float m_FalloffRate;
  
 in vec2 texCoord;
-out vec4 fragColor;
  
 float depthv;
 float shadowFactor;
@@ -74,7 +78,7 @@ void main(){
     float result;
     vec3 position = getPosition(texCoord);
     if(depthv==1.0){
-        fragColor=vec4(1.0);
+        outFragColor=vec4(1.0);
         return;
     }
     vec3 normal = getNormal(texCoord);
@@ -126,5 +130,5 @@ void main(){
         result = 1.0-ao;
     }
  
-    fragColor = vec4(vec3(result),1.0);
+    outFragColor = vec4(vec3(result),1.0);
 }
