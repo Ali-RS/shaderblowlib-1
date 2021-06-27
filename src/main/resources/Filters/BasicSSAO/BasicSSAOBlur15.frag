@@ -1,3 +1,4 @@
+#import "Common/ShaderLib/GLSLCompat.glsllib"
 #import "Common/ShaderLib/MultiSample.glsllib"
 
 uniform COLORTEXTURE m_Texture;
@@ -14,7 +15,6 @@ uniform vec2 m_FrustumNearFar;
 const float epsilon = 0.005;
 
 in vec2 texCoord;
-out vec4 fragColor;
  
 float random (vec4 seed4) {
     float dot_product = dot(seed4, vec4(12.9898,78.233,45.164,94.673));
@@ -36,9 +36,9 @@ void main(){
     vec4 color = texture2D(m_Texture,texCoord);
      
     if (!m_UseAo && !m_UseOnlyAo)
-        fragColor = color;
+        outFragColor = color;
     else if (m_UseAo && m_UseOnlyAo)
-        fragColor = ssao;
+        outFragColor = ssao;
     else
-        fragColor = color*ssao;
+        outFragColor = color*ssao;
 }
